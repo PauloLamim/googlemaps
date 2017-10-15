@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Maps</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS4sN7TpvFAwM5P4OFETBR37xdBJ4hdSQ&libraries=places"></script>
+    <script>
+        var myCenter = new google.maps.LatLng(17.433053, 78.412172);
+        function loadMap(){
+            var mapProp = {
+                center: myCenter,
+                zoom: 4,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+            var marker = new google.maps.Marker({
+                position: myCenter,
+            });
+
+            marker.setMap(map);
+
+            var infowindow = new google.maps.InfoWindow({
+                content:"Hi"
+            });
+
+            var myListener = google.maps.event.addListener(marker, 'click', function(){
+                infowindow.open(map,marker);
+            });
+
+            //google.maps.event.removeListener(myListener); removes the listener
+        }
+    </script>
+</head>
+<body onload="loadMap()">
+    <div id="googleMap" style="width: 580px; height: 400px;"></div>
+</body>
+</html>

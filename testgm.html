@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Maps</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS4sN7TpvFAwM5P4OFETBR37xdBJ4hdSQ&libraries=places"></script>
+    <script>
+        function loadMap() {
+            var mapOptions = {
+                center:new google.maps.LatLng(20.593684, 78.96288), zoom: 12,
+                mapTypeId:google.maps.MapTypeId.ROADMAP
+            };
+
+            var map = new google.maps.Map(document.getElementById("sample"),mapOptions);
+        }
+    </script>
+</head>
+<body onload="loadMap()">
+    <div id="sample" style="width: 570px; height: 580px;"></div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Maps</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS4sN7TpvFAwM5P4OFETBR37xdBJ4hdSQ&libraries=places"></script>
+    <script>
+        //centre - under this property, set latitude and longitude of the required location of the constructor
+        //zoom - specify the zoom level of the map
+        //maptypeid - type of map
+        //     roadmap - normal, default 2D map
+        //     satellite - photographic map
+        //     Hybrid - combination of two or more other types
+        //     terrain - map with mountains, rivers, etc
+
+        function loadMap() {
+
+            var mapOptions = {
+                center:new google.maps.LatLng(17.609993, 83.221436),
+                zoom:12,
+                mapTypeId:google.maps.MapTypeId.HYBRID,
+                //disableDefaultUI: true    remove UI controls on the map
+                panControl: true,
+                zoomControl: true,
+                scaleControl: true,
+                mapTypeControl: true,
+                streetViewControl: true,
+                overviewMapControl: true,
+                rotateControl: true
+            };
+
+            var map = new google.maps.Map(document.getElementById("sample"),mapOptions);
+        }
+
+        google.maps.event.addDomListener(window, 'load', loadMap);
+    </script>
+
+</head>
+
+<body>
+<div id = "sample" style = "width:580px; height:400px;"></div>
+</body>
+
+</html>

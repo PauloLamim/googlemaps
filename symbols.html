@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Maps</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS4sN7TpvFAwM5P4OFETBR37xdBJ4hdSQ&libraries=places"></script>
+    <script>
+        function loadMap(){
+            var mapOptions = {
+                center:new google.maps.LatLng(17.433053, 78.412172),
+                zoom: 5
+            }
+
+            var map = new google.maps.Map(document.getElementById("sample"),mapOptions);
+
+            var marker = new google.maps.Marker({
+               position: map.getCenter(),
+
+               icon: {
+                   path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+                   scale: 5,
+                   strokeWeight: 2,
+                   strokeColor: "#B40404"
+               },
+
+               animation:google.maps.Animation.DROP, //animating the symbol
+               draggable: true,
+               map:map,
+            });
+        }
+    </script>
+</head>
+<body onload="loadMap()">
+    <div id="sample" style="width: 580px; height: 400px;"></div>
+</body>
+</html>
